@@ -1,0 +1,66 @@
+<mat-card class="max-w-2xl mx-auto">
+  <mat-card-header class="flex-col">
+    <mat-card-title>
+      <span class="flex">
+        Exchange Rates
+      </span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full pt-8">
+        <span class="flex items-center pb-5">
+          Base Currency: {{ base }}
+        </span>
+        <mat-form-field appearance="outline" floatLabel="always" class="w-full sm:w-48">
+          <mat-label>Search</mat-label>
+          <input matInput [formControl]="filterControl" placeholder="Example: USD">
+          @if (filterControl.value) {
+            <button matSuffix matIconButton aria-label="Clear Search" (click)="clearFilter()">
+              <mat-icon>close</mat-icon>
+            </button>
+          }
+        </mat-form-field>
+      </div>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="mt-4 custom-mat-table">
+    <div class="overflow-y-auto max-h-80">
+      <mat-table [dataSource]="dataSource">
+        <!-- Currency Column -->
+        <ng-container matColumnDef="currency">
+          <mat-header-cell *matHeaderCellDef>Currency</mat-header-cell>
+          <mat-cell *matCellDef="let cell" class="font-medium">{{ cell.code }}</mat-cell>
+        </ng-container>
+
+        <!-- Rate Column -->
+        <ng-container matColumnDef="rate">
+          <mat-header-cell *matHeaderCellDef>Rate</mat-header-cell>
+          <mat-cell *matCellDef="let cell" class="font-medium">{{ cell.rate | number:'1.2-4' }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        <div *matNoDataRow>
+          <div class="text-center py-4">
+            No data available
+          </div>
+        </div>
+      </mat-table>
+    </div>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <mat-divider></mat-divider>
+    <span class="flex justify-center p-4 text-xs">
+      Last Update:
+      @if(timestamp){
+      {{ timestamp | date:'MMM dd, yyyy hh:mm a' }}
+      }
+      @else {
+      N/A
+      }
+    </span>
+
+  </mat-card-footer>
+</mat-card>

@@ -1,0 +1,19 @@
+.amount-form-field, .currency-form-field {
+  .mat-mdc-form-field-input-control {
+    font: var(--mat-sys-display-small) !important;
+  }
+}
+
+.convert-button {
+  font-size: 20px;
+  height: 56px;
+  border-radius: 8px;
+}
+
+.currency-info {
+  color: var(--mat-sys-on-surface-variant); 
+}
+
+.currency-amount {
+  color: var(--mat-sys-on-surface)
+}

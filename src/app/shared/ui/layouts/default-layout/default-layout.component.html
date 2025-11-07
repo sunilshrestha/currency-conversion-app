@@ -1,0 +1,45 @@
+<div class="h-screen flex flex-col">
+        <mat-toolbar id="nav-toolbar" class="">
+            <div class="w-full px-10 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <span class="block md:hidden">
+                    <button matIconButton class="block md:hidden" aria-label="Toggle menu">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </span>
+                <span class="font-semibold text-lg tracking-wide">Currency Conversion App</span>
+            </div>
+
+            <!-- Center nav links -->
+            <div class="hidden md:flex space-x-4">
+                <a matButton routerLink="/dashboard"routerLinkActive="nav-active-link">
+                    <mat-icon>dashboard</mat-icon>
+                    Dashboard
+                </a>
+                <a matButton routerLink="/convert" routerLinkActive="nav-active-link">
+                    <mat-icon>currency_exchange</mat-icon>
+                    Currency Conversion
+                </a>
+                <a matButton routerLink="/history" routerLinkActive="nav-active-link">
+                    <mat-icon>history</mat-icon>
+                    Conversion History
+                </a>
+            </div>
+            <div class="flex items-center space-x-2">
+                <a matButton href="{{githubUrl}}" target="_blank">
+                    <mat-icon>code</mat-icon>
+                    Github
+                </a>
+            </div>
+            </div>
+        </mat-toolbar>
+
+
+    <main class="flex-1 overflow-y-auto p-4">
+        <router-outlet></router-outlet>
+    </main>
+
+    <footer id="footer" class="text-sm p-4">
+        <div class="container mx-auto">© 2025 Currency App</div>
+    </footer>
+</div>
