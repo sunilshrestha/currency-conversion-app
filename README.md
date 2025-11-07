@@ -53,7 +53,7 @@ Project structure (important files)
 - `src/styles.scss` — global styles (imports Tailwind partials and Material theme)
 
 Notes about APIs
-- This frontend relies on a separate **.NET Core Web API** backend available here: [Currency Conversion](https://github.com/sunilshrestha/currency-conversion) Repository. To connect the app to the backend, configure the `apiBaseUrl` in the Angular environment files.
+- This frontend relies on a separate **.NET Core Web API** backend available here: [Currency Conversion](https://github.com/sunilshrestha/CurrencyConversion) Repository. To connect the app to the backend, configure the `apiBaseUrl` in the Angular environment files.
 
 How to configure the API base URL
 - Open the environment files and set `apiBaseUrl` to the URL where the .NET Core API is hosted:
@@ -85,7 +85,7 @@ How to configure the API base URL
 - After changing the environment files, restart the Angular dev server (`npm start` / `ng serve`) so the new values are picked up.
 
 Running the backend
-- Clone or obtain the separate [**Currency Conversion**](https://github.com/sunilshrestha/currency-conversion) repo and run it according to its README. Make sure the API is reachable at the URL you configured above.
+- Clone or obtain the separate [**Currency Conversion**](https://github.com/sunilshrestha/CurrencyConversion) repo and run it according to its README. Make sure the API is reachable at the URL you configured above.
 
 Notes
 - If you prefer to point the frontend directly at a third-party exchange rates provider, update **currency conversion service** and the associated **data models** accordingly. By default this project is wired to call your own backend API.
